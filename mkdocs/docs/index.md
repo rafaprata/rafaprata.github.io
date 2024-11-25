@@ -1,5 +1,5 @@
----
+<!-- ---
 hide:
   - navigation
----
-# Home
+--- -->
+# Blog do Rafael

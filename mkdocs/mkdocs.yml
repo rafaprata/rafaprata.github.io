@@ -3,22 +3,20 @@ site_url: https://rafaprata.github.io
 theme:
   name: material
   palette: 
-        # Palette toggle for light mode
+    # Palette toggle for light mode
     - scheme: default
       media: "(prefers-color-scheme: light)"
       toggle:
         icon: material/brightness-7 
         name: Switch to dark mode
-      primary: cyan
-
+      primary: black
     # Palette toggle for dark mode
     - scheme: slate
       media: "(prefers-color-scheme: dark)"
       toggle:
         icon: material/brightness-4
         name: Switch to system mode
-      primary: cyan
-
+      primary: black
     # Palette toggle for automatic mode
     - media: "(prefers-color-scheme)"
       toggle:
@@ -32,7 +30,7 @@ theme:
     - navigation.instant.progress
     - navigation.footer
     - navigation.tracking
-    # - navigation.tabs
+    - navigation.tabs
     # - navigation.tabs.sticky
     - navigation.sections
     - navigation.top
@@ -45,18 +43,19 @@ markdown_extensions:
   - pymdownx.emoji:
       emoji_index: !!python/name:material.extensions.emoji.twemoji
       emoji_generator: !!python/name:material.extensions.emoji.to_svg
-
-# nav:
-#   - Home: 
-#       - index.md
+  - md_in_html
+  - pymdownx.blocks.caption
+  - pymdownx.superfences
+  - toc:
+      title: "Nesta página" 
+nav:
+  - Blog: 
+      - index.md
 #       - test.md
 #   - Test: test2.md
-
 extra:
   generator: false
-
 copyright: "Copyright &copy; 2022 - 2024 Rafael Prata"
-
 plugins:
   - blog:
       enabled: true
@@ -88,9 +87,9 @@ plugins:
       # authors_profiles_pagination: true
       # authors_profiles_pagination_per_page: 10
       # authors_profiles_toc: false
-      pagination: true
-      pagination_per_page: 2
-      pagination_keep_content: false
+      pagination: false
+      # pagination_per_page: 10
+      # pagination_keep_content: true
       # draft: false
       # draft_on_serve: true
       # draft_if_future_date: false
