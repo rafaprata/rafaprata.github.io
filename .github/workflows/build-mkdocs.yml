@@ -17,23 +17,23 @@ jobs:
       - name: Install Python dependencies
         uses: py-actions/py-dependency-install@v4
         with:
-          path: "./requirements.txt"
+          path: "${{ github.repository }}/requirements.txt"
       - name: Build site
         id: build
         run: |
-          mkdocs build --site-dir ../$SITE_DIR -f mkdocs/mkdocs.yml
+          mkdocs build --site-dir ../${{ github.repository }}/$SITE_DIR -f ${{ github.repository }}/mkdocs/mkdocs.yml
       - name: Archive Site
         run: |
           tar \
             --dereference --hard-dereference \
-            --directory "$SITE_DIR" \
-            -cvf ./artifact.tar \
+            --directory "${{ github.repository }}/$SITE_DIR" \
+            -cvf ${{ github.repository }}/artifact.tar \
             .
       - name: Upload artifact
         id: upload-artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: "./artifact.tar"
+          path: "${{ github.repository }}/artifact.tar"
   deploy:
     needs: build
     permissions:
